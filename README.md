@@ -10,6 +10,7 @@
 - create a secrets.py file within the same folder after cloning and create two variables with actual login info labelled (username, key)
   username = "your_actual_username"
   key = "your_actual_password"
+- To Run, `python FacebookBot.py`
 
 ## Usage
 
