@@ -34,8 +34,6 @@ class FacebookBot():
             messageArea = selected[0].find_elements_by_xpath(".//textarea")
             fullName = html.split('aria-label="')[1].split('"')[0]
             name = fullName.split(" ")[0]
-   
-            print(fullName)
 
             message = [f'{name}, happy birthday!', f'happy birthday {name}!', f'happy birthday {name}!', 'happy birthday :D', 'Happy bday!!!']
             sendMessage = random.choice(message)
