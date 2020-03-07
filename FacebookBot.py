@@ -35,7 +35,7 @@ class FacebookBot():
             fullName = html.split('aria-label="')[1].split('"')[0]
             name = fullName.split(" ")[0]
 
-            message = [f'{name}, happy birthday!', f'happy birthday {name}!', f'happy birthday {name}!', 'happy birthday :D', 'Happy bday!!!']
+            # message = [f'{name}, happy birthday!', f'happy birthday {name}!', f'happy birthday {name}!', 'happy birthday :D', 'Happy bday!!!']
             sendMessage = random.choice(message)
 
             if(len(messageArea) > 0):
@@ -47,7 +47,7 @@ class FacebookBot():
             counter += 1
             selected = self.driver.find_elements_by_xpath("//*[@id='birthdays_content']/div[1]/div[2]/ul/li["+str(counter)+"]")
 
-        print("All Done!!")
+        print("All Done!")
 
     def close(self):
         self.driver.close()
