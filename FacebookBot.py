@@ -37,36 +37,13 @@ class FacebookBot():
             # wish_forms = todays.find_elements_by_xpath("/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div/form/div/div/div[1]/div/div/div[2]/div")
             names = todays.find_elements_by_class_name('cbu4d94t')
             for wish_form,name in zip(wish_forms,names[1:]):
-                message = [f'{name}, happy birthday!', f'happy birthday {name}!', f'happy birthday {name}!', 'happy birthday :D', 'Happy bday!!!']
-                sendMessage = random.choice(message)
-                msg = sendMessage
-                wish_form.send_keys(msg)
+                messages = [f'{name.text.split()[0]}, happy birthday!', f'happy birthday {name.text.split()[0]}!', f'happy birthday {name.text.split()[0]}!', 'happy birthday :D', 'Happy bday!!!']
+                sendMessage = random.choice(messages)
+                wish_form.send_keys(sendMessage)
                 # Uncomment the next line to automatically send the wishes
-                ## wish_form.send_keys(Keys.ENTER)
+                wish_form.send_keys(Keys.ENTER)
         except Exception as e:
                 print(str(e))
-
-    #     counter = 1
-    #     selected = self.driver.find_elements_by_class("j83agx80 pybr56ya rz4wbd8a sj5x9vvc a8nywdso")
-    # # find_element_by_xpath('.//textarea[@aria-label="Write a birthday wish on his Timeline..."]')
-    #     while(len(selected) > 0 ):
-    #         html = selected[0].get_attribute('innerHTML')
-    #         messageArea = selected[0].find_elements_by_xpath(".//textarea")
-    #         fullName = html.split('aria-label="')[1].split('"')[0]
-    #         name = fullName.split(" ")[0]
-
-    #         message = [f'{name}, happy birthday!', f'happy birthday {name}!', f'happy birthday {name}!', 'happy birthday :D', 'Happy bday!!!']
-    #         sendMessage = random.choice(message)
-
-    #         if(len(messageArea) > 0):
-    #             messageArea[0].send_keys(sendMessage)
-    #             messageArea[0].send_keys(Keys.RETURN)
-    #             sleep(0.75)
-    #         else:
-    #             pass
-    #         counter += 1
-    #         selected = self.driver.find_elements_by_xpath("//*[@id='birthdays_content']/div[1]/div[2]/ul/li["+str(counter)+"]")
-
         print("All Done!")
 
     def close(self):
@@ -76,4 +53,4 @@ bot = FacebookBot()
 bot.login()
 bot.event()
 bot.post()
-# bot.close()
+bot.close()
